@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns:ndc="sap.ndc" xmlns="sap.m" 
+controllerName="transferposting1.controller.View2" displayBlock="true">
+    <Page id="idPageView2" title="{i18n>title}">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormDisplay354wideDual" editable="true" layout="ResponsiveGridLayout" 
+                    labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="4" adjustLabelSpan="false" 
+                    emptySpanXL="5" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" 
+                    columnsM="1" singleContainerFullSize="false">
+                    <f:content>
+                            <Label/>
+                            <Input id="idScannedValue" value="{SourceModel>/Id}" change="onChangeScannedValue"/>
+                            <Label/>
+                             <ndc:BarcodeScannerButton
+                                    id="sampleBarcodeScannerButton"
+                                    scanSuccess="onScanSuccess"
+                                    scanFail="onScanError"
+                                    inputLiveUpdate="onScanLiveupdate"
+                                    dialogTitle="Barcode Scanner Button Sample"
+                                />
+                        <core:Title text="{i18n>Source}"/>
+                            <Label text="{i18n>Material}"/>
+                            <Text text="{SourceModel>/Material}"/>
+                            <Label text="{i18n>Batch}"/>
+                            <Text text="{SourceModel>/Batch}"/>
+                            <Label text="{i18n>Quantity}"/>
+                            <Text text="{SourceModel>/Quantity}"/>
+                            <Text text="{SourceModel>/UnitOfEntry}"/>
+                            <Label text="{i18n>StorageLocation}"/>
+                            <Text text="{SourceModel>/Location}"/>
+                        <core:Title text="{i18n>Target}"/>
+                            <Label text="{i18n>Material}"/>
+                            <Input value="{SourceModel>/TMaterial}" editable="false"/>
+                            <Label text="{i18n>Batch}"/>
+                            <ComboBox id="idTargetBatch" items="{/ZshBatchSet}" selectedKey="{SourceModel>/TBatch}" editable="{EditModel>/Batch}">
+                                <core:Item key="{Charg}" text="{Charg}"></core:Item>
+                            </ComboBox>
+                            <Label text="{i18n>Quantity}"/>
+                            <Input id="idTargetQuantity" value="{SourceModel>/TQuantity}" editable="{EditModel>/Qty}"/>
+                            <Text text="{SourceModel>/UnitOfEntry}"/>
+                            <Label text="{i18n>StorageLocation}"/>
+                            <ComboBox id="idTargetSLoc" items="{/ZshLocSet}" selectedKey="{SourceModel>/TLocation}" editable="{EditModel>/Location}" showSecondaryValues="true">
+                                <core:ListItem key="{Lgort}" text="{Lgort}" additionalText="{Lgobe}"> </core:ListItem>
+                            </ComboBox>
+                            <!-- <Button text="Scan Location" type="Emphasized"/> -->
+                            <ndc:BarcodeScannerButton
+                                    id="sampleBarcodeScannerButton1"
+                                    scanSuccess="onSLocScanSuccess"
+                                    scanFail="onScanError"
+                                    inputLiveUpdate="onScanLiveupdate"
+                                    dialogTitle="Barcode Scanner Button Sample"
+                                />
+                        <!-- <core:Title/> -->
+                            <Label/>
+                            <Button text="{i18n>Save}" type="Success" press="onPressSave"/>
+                            <Label/>
+                            <Button text="{i18n>NewEntry}"/>
+                            <Label/>
+                            <Button text="{i18n>PrintLabel}"/>
+                            <Label/>
+                            <Button text="{i18n>MainMenu}" press="onPressMainMenu"/>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

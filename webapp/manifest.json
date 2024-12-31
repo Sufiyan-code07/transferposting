@@ -1,0 +1,158 @@
+{
+    "_version": "1.60.0",
+    "sap.app": {
+        "id": "transferposting1",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.1",
+            "toolsId": "d8e195b3-195e-4ab1-b797-69b7b7793d4b"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZTP_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "transferposting1.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "transferposting1.view",
+                "async": true,
+                "viewPath": "transferposting1.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "RouteView2",
+                    "pattern": "transferposting/{condition}",
+                    "target": [
+                        "TargetView2"
+                    ]
+                },
+                {
+                    "name": "RouteCreate",
+                    "pattern": "Create",
+                    "target": [
+                        "TargetCreate"
+                    ]
+                },
+                {
+                    "name": "RouteDelivery",
+                    "pattern": "Delivery",
+                    "target": [
+                        "targetDelivery"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "TargetView2": {
+                    "viewType": "XML",
+                    "viewName": "View2",
+                    "viewId": "View2",
+                    "transition": "slide",
+                    "clearControlAggregation": false
+                },
+                "TargetCreate": {
+                    "viewType": "XML",
+                    "viewName": "Create",
+                    "viewId": "Create",
+                    "transition": "slide",
+                    "clearControlAggregation": false
+                },
+                "targetDelivery": {
+                    "viewId": "Delivery",
+                    "viewName": "Delivery",
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "transferposting1.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <!-- <Dialog title="Select a Delivery Number" contentWidth="50%" contentHeight="50%">
+        <Table items="{/zsh_deliverySet}">
+            <columns>
+                <Column >
+                    <Text text="Delivery Number"></Text>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Active" press="onPressRow">
+                    <cells>
+                        <Text text="{Vbeln}"></Text>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <buttons>
+            <Button text="Close" press="onPressCloseDeliveryNumber"></Button>
+        </buttons>
+    </Dialog> -->
+    <TableSelectDialog title="Select Delivery Number" contentWidth="40%" contentHeight="50%"
+        id="myDialog"
+		noDataText="No Products Found"
+		search=".handleSearch"
+		confirm=".handleClose"
+		cancel=".handleClose"
+		items="{path : '/zsh_deliverySet'}" >
+        <ColumnListItem vAlign="Middle">
+			<cells>
+				<Text text="{Vbeln}" />
+			</cells>
+		</ColumnListItem>
+        <columns>
+			<Column width="12em">
+				<header>
+					<Text text="Delivery" />
+				</header>
+			</Column>
+        </columns>
+    </TableSelectDialog>
+</core:FragmentDefinition>

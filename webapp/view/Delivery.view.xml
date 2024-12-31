@@ -1,0 +1,94 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:ndc="sap.ndc"
+    controllerName="transferposting1.controller.Delivery" xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <Page title="Delivery" showNavButton="true" navButtonPress="onPressNav" >
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Transfer Posting" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="5" emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                    <f:content>
+                        <Label text="Delivery Number" design="Bold" />
+                        <Input id="idDeliveryNumber" showValueHelp="true" valueHelpRequest="onVHDeliveryNumber" change="onChangeDeliveryNumber"/>
+                    </f:content>
+                </f:SimpleForm>
+                <Table id="idDeliveryTable" headerText="Deliveries" items="{DeliveryModel>/aDeliveryData}" mode="SingleSelectLeft" >
+                    <columns>
+                        <Column >
+                            <Text text="Delivery"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Item"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Material"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Item Descr."></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Plant"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Location"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Delivery Qty"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Pick quantity"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Sales Unit"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Batch"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Picking Status"></Text>
+                        </Column>
+                        <Column >
+                            <Text text="Movement Type"></Text>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <Text text="{DeliveryModel>Vbeln}"></Text>
+                                <Text text="{DeliveryModel>Posnr}"></Text>
+                                <Text text="{DeliveryModel>Matnr}"></Text>
+                                <Text text="{DeliveryModel>Arktx}"></Text>
+                                <Text text="{DeliveryModel>Werks}"></Text>
+                                <Text text="{DeliveryModel>Lgort}"></Text>
+                                <Text text="{DeliveryModel>Lfimg}"></Text>
+                                <Text text="{DeliveryModel>Pikmg}"></Text>
+                                <Text text="{DeliveryModel>Vrkme}"></Text>
+                                <Text text="{DeliveryModel>Charg}"></Text>
+                                <Text text="{DeliveryModel>Kosta}"></Text>
+                                <Text text="{DeliveryModel>Bwart}"></Text>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                 </VBox>
+                <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="5" emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                    <f:content>
+                        <Label text="ID"/>
+                        <Input id="idDeliveryScan" />
+                        <!-- <Label/> -->
+                        <ndc:BarcodeScannerButton width="50%"
+                            scanSuccess="onScanSuccess"
+                            scanFail="onScanError"
+                            inputLiveUpdate="onScanLiveupdate"
+                            dialogTitle="Barcode Scanner Button Sample"
+                        />
+                    </f:content>
+                </f:SimpleForm>
+        </content>
+        <footer>
+            <Bar >
+                <contentRight>
+                    <Button text="Proceed" press="onPressProceed" type="Emphasized" ></Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

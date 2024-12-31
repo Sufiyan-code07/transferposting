@@ -1,0 +1,35 @@
+<mvc:View controllerName="transferposting1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="_IDGenVBox" class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" title="Transfer Posting" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="5" emptySpanL="5" emptySpanM="5" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                    <f:toolbar>
+                        <Toolbar id="TB1">
+                        <!--  <Title id="Title1" text="Transfer Posting"/>  -->
+                        <ToolbarSpacer/>
+                        <Button id="idCreateLabal" text="{i18n>CreateLabel}" type="Emphasized" press="onPressCreate"/>
+                        </Toolbar>
+                        </f:toolbar>
+                    <f:content>
+                        <core:Title text="{i18n>TransferPosting}"/>
+                            <Label id="_IDGenLabel"/>
+                            <Button id="id1" text="{i18n>ChangeLocOnly}" type="Emphasized" press="onPressChangeLoc"/>
+                            <Label id="_IDGenLabel2"/>
+                            <Button id="id2" text="{i18n>ChangeLocQty}" type="Emphasized" press="onPressChangeLoc"/>
+                            <Label id="_IDGenLabel3"/>
+                            <Button id="id3" text="{i18n>ChangeLocBatch}" type="Emphasized" press="onPressChangeLoc"/>
+                            <Label id="_IDGenLabel4"/>
+                            <Button id="id4" text="{i18n>ChangeLocBatchQty}" type="Emphasized" press="onPressChangeLoc"/>
+                        <core:Title text="{i18n>Delivery}"/>
+                            <Label/>
+                            <Button text="{i18n>Picking}" type="Emphasized" press="onPressDelivery"/>
+                            <Label/>
+                            <Button text="{i18n>Confirmation}" type="Emphasized"/>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+
+    </Page>
+</mvc:View>

@@ -1,0 +1,41 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m" 
+controllerName="transferposting1.controller.Create" xmlns:core="sap.ui.core"
+ displayBlock="true">
+<Page title="Main Menu" showNavButton="true" navButtonPress="onPressNavBack">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" 
+                    labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="6" 
+                    emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" 
+                    singleContainerFullSize="false">
+                    <f:content>
+                        <Label text="{i18n>Material}"/>
+                        <ComboBox id="idMaterial" items="{/ZshMaterialSet}" >
+                            <core:Item key="{Matnr}" text="{Matnr}"></core:Item>
+                        </ComboBox>
+                        <Label text="{i18n>Batch}"/>
+                        <ComboBox id="idBatch" items="{/ZshBatchSet}" >
+                            <core:Item key="{Charg}" text="{Charg}"></core:Item>
+                        </ComboBox>
+                        <Label text="{i18n>Quantity}"/>
+                        <Input id="idQuantity"/>
+                        <ComboBox id="idUnit" items="{/ZshErfmeSet}" >
+                            <core:Item key="{Erfme}" text="{Erfme}"></core:Item>
+                        </ComboBox>
+                        <Label text="{i18n>StorageLocation}"/>
+                        <ComboBox id="idStorage" items="{/ZshLocSet}" showSecondaryValues="true" >
+                            <core:ListItem key="{Lgort}" text="{Lgort}" additionalText="{Lgobe}"> </core:ListItem>
+                        </ComboBox>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+        <footer>
+            <Bar >
+                <contentRight>
+                    <Button text="{i18n>Save}" type="Emphasized" press="onPressSave"></Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>
